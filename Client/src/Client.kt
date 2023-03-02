@@ -7,14 +7,26 @@ class Client(
     private val host: String = "127.0.0.1",
     private val port: Int,
 ) {
+    companion object {
+        var counter = 0
+    }
+
+    init {
+        counter++
+    }
+
+    val id = counter
+
     fun start(){
         var s: Socket? = null
         var pw: PrintWriter? = null
         var br: BufferedReader? = null
+        println("Я клиент $id")
         try {
             s = Socket(host, port)
             pw = PrintWriter(s.getOutputStream()).apply {
-                println("Привет от клиента!")
+                Thread.sleep(20000)
+                println("Привет от клиента $id!")
                 flush()
             }
             br = BufferedReader(InputStreamReader(s.getInputStream())).also {
