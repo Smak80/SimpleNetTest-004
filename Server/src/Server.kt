@@ -37,7 +37,7 @@ class Server {
                                 println("Что-то пошло не так... ")
                                 println(e)
                             } finally {
-                                pw?.close()
+                                //pw?.close()
                             }
                         }
 
@@ -45,8 +45,8 @@ class Server {
                         println("Что-то пошло не так... ")
                         println(e)
                     } finally {
-                        br?.close()
-                        s?.close()
+                        //br?.close()
+                        //s?.close()
                     }
                 }
             }
